@@ -1,0 +1,5 @@
+---
+applications:
+ - name: IBMStudentChatApp
+   memory: 64M
+   no-route: true

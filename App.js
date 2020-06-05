@@ -1,13 +1,19 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import AuthenticationContextProvider from "./context/Authentication.js"
+import Entry from "./Entry"
+
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Video chat app for students</Text>
-    </View>
-  );
-}
+
+      return (
+        <AuthenticationContextProvider>
+        <View style={styles.container}>
+          <Entry/>
+        </View>
+        </AuthenticationContextProvider>
+      );
+    }
 
 const styles = StyleSheet.create({
   container: {
