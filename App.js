@@ -9,6 +9,7 @@ export default function App() {
       return (
         <AuthenticationContextProvider>
         <View style={styles.container}>
+          <Text style={{justifyContent:'center'}}> This is app.js </Text>
           <Entry/>
         </View>
         </AuthenticationContextProvider>
