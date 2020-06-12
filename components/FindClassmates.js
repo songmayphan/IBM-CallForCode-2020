@@ -1,18 +1,16 @@
-
-
 import * as React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import  Header  from './Header';
+import Constants from 'expo-constants';
 
 
 
-const Profile = () =>{
+const FindClassmates = () =>{
     return(
         <View>
-            <Header title="Profile"/>
-            <Text>This page shows my profile</Text>
+            <Header title= "My Classmates"/>
+            <Text>This page shows the list of all my classmates </Text>
         </View>
-
     )
 }
 
@@ -20,6 +18,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
     backgroundColor: '#5f758e',
     padding: 8,
   },
@@ -30,4 +29,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
-export default Profile;
+
+export default FindClassmates;

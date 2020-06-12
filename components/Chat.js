@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import  Header  from './Header';
+import Constants from 'expo-constants';
 
 
 
-const ClassList = () =>{
+const Chat = () =>{
     return(
         <View>
             <Header title="Chat"/>
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    // paddingTop: Constants.statusBarHeight,
+    paddingTop: Constants.statusBarHeight,
     backgroundColor: '#5f758e',
     padding: 8,
   },
@@ -28,3 +29,5 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
 });
+
+export default Chat;

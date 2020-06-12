@@ -13,6 +13,7 @@ import { Ionicons } from "@expo/vector-icons";
 import ClassList from "./ClassList";
 import Profile from "./Profile";
 import Chat from "./Chat";
+import FindClassmates from "./FindClassmates";
 // import Scan from "./Scan";
 //Amplify
 
@@ -31,7 +32,7 @@ const ClassScreen = (props) => {
 //ProfileScreen------------------------------------------------------
 const ProfileScreen = (props) => {
   return (
-    <View style={[styles.container, {backgroundColor: '#8baab5'}]}>
+    <View style={styles.container}>
       <Profile />
     </View>
   );
@@ -46,6 +47,15 @@ const ChatScreen = (props) => {
     </View>
   );
 };
+//findcreen------------------------------------------------------
+
+const FindScreen = (props) => {
+  return (
+    <View style={styles.container}>
+      <FindClassmates />
+    </View>
+  );
+};
 
 //styling-------------------------------------------------------
 export const styles = StyleSheet.create({
@@ -54,6 +64,7 @@ export const styles = StyleSheet.create({
     paddingTop: 25,
     height: 60,
     marginBottom: 0,
+    backgroundColor: '#8baab5'
   },
   text: {
     height: 60,
@@ -83,52 +94,59 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: "center",
   },
+  
 });
 
 //App-----------------------------------------------------------
 
+//created a bottom tab navigator here
 const Tab = createBottomTabNavigator();
 
-class MainTabs extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
-  render() {
+//Begin main tabs--------------------------------------
+function MainTabs  () {
+
+
+  
     return (
-      <Provider store={store}>
-        <NavigationContainer>
+      // <Provider store={store}>
+      
+         <NavigationContainer>
+
           <Tab.Navigator
             screenOptions={({ route }) => ({
               tabBarIcon: ({ focused, color, size }) => {
                 let iconName;
 
                 if (route.name === "My Classes") {
-                  iconName = focused ? "ios-basket" : "ios-basket";
+                  iconName = focused ? "ios-school" : "ios-school";
                 } else if (route.name === "Chat") {
-                  iconName = focused ? "ios-list" : "ios-list-box";
+                  iconName = focused ? "ios-chatbubbles" : "ios-chatbubbles";
                 } else if (route.name === "Profile") {
                   iconName = focused ? "md-person" : "md-person";
+                 } else if (route.name === "Find") {
+                  iconName = focused ? "md-search" : "md-search";
                 } 
 
                 return <Ionicons name={iconName} size={size} color={color} />;
               },
             })}
-            //Icon change when clicking the button
+            //Icon change when clicking the tab
             tabBarOptions={{
-              activeTintColor: "#BDC667",
+              activeTintColor: "#E9C46A",
 
-              inactiveTintColor: "#5f758e",
+              inactiveTintColor: "#264653",
             }}
           >
             
-            <Tab.Screen name="My Classes" component={ChatScreen} />
-            <Tab.Screen name="Chat" component={ClassScreen} />
+            <Tab.Screen name="Chat" component={ChatScreen} />
+            <Tab.Screen name="Find" component={FindScreen} />
+            <Tab.Screen name="My Classes" component={ClassScreen} />
             <Tab.Screen name="Profile" component={ProfileScreen} />
           </Tab.Navigator>
-        </NavigationContainer>
-      </Provider>
+         </NavigationContainer> 
+      // </Provider>
     );
-  }
+  
 }
 export default MainTabs;
